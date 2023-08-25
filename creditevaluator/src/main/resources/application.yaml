@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: mscreditevaluator
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+server:
+  port: 0
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://ms-eurekauser:123456@localhost:8761/eureka
+    register-with-eureka: true
+  instance:
+    instance-id: ${spring.application.name}:${spring-cloud.application.instance_id:${random.value}}
+
+mq:
+  queues:
+    card-emission: card-emission
